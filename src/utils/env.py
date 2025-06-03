@@ -1,4 +1,6 @@
 import os
 
-UPSTOX_API_KEY = os.getenv('upstox_api_key')
-UPSTOX_SECRET_KEY = os.getenv('upstox_secret_key')
+UPSTOX_API_KEY = os.getenv('UPSTOX_API_KEY')
+UPSTOX_SECRET_KEY = os.getenv('UPSTOX_SECRET_KEY')
+UPSTOX_ACCESS_TOKEN = os.getenv('UPSTOX_ACCESS_TOKEN')
+SERVER_NAME = os.getenv('SERVER_NAME')
