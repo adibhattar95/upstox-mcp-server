@@ -3,9 +3,13 @@ import webbrowser
 import urllib.parse
 from http.server import BaseHTTPRequestHandler, HTTPServer
 import threading
-import json
 import os
-from src.utils.env import UPSTOX_API_KEY, UPSTOX_SECRET_KEY
+from typing import Optional
+
+class AuthHTTPServer(HTTPServer):
+    def __init__(self, server_address, RequestHandlerClass):
+        super().__init__(server_address, RequestHandlerClass)
+        self.auth_code: Optional[str] = None  # Declare attribute with proper type
 
 class UpstoxAPI:
     def __init__(self, api_key, api_secret, redirect_uri="http://localhost:8000"):
@@ -35,7 +39,7 @@ class UpstoxAPI:
                 params = urllib.parse.parse_qs(query)
 
                 if 'code' in params:
-                    self.server.auth_code = params['code'][0]
+                    self.server.auth_code = params['code'][0] # type: ignore #I
                     self.send_response(200)
                     self.end_headers()
                     self.wfile.write(b"<h2>Authorization successful. You may close this window.</h2>")
@@ -48,7 +52,7 @@ class UpstoxAPI:
             def log_message(self, format, *args):
                 return  # silence logs
 
-        server = HTTPServer(('localhost', 8000), AuthHandler)
+        server = AuthHTTPServer(('localhost', 8000), AuthHandler)
         server.auth_code = None
         print("🖥️ Waiting for authorization on http://localhost:8000 ...")
         server.handle_request()
@@ -107,21 +111,3 @@ class UpstoxAPI:
                 file.write(f"{key}={value}\n")
 
         print(f"🔐 Access token saved to {env_path}")
-
-
-def main():
-    API_KEY = UPSTOX_API_KEY
-    API_SECRET = UPSTOX_SECRET_KEY
-    print(API_KEY)
-
-    upstox = UpstoxAPI(API_KEY, API_SECRET)
-
-    try:
-        tokens = upstox.login()
-        print(f"\n🎉 Login successful! Access token received and saved.")
-
-    except Exception as e:
-        print(f"⚠️ Error: {e}")
-
-if __name__ == "__main__":
-    main()

@@ -8,6 +8,10 @@ dependencies = [
     "httpx>=0.28.1",
     "ipykernel>=6.29.5",
     "mcp[cli]>=1.9.2",
+    "pymilvus>=2.5.10",
     "requests==2.32.3",
+    "sentence-transformers==4.1.0",
+    "tqdm>=4.67.1",
     "upstox-python-sdk>=2.15.0",
+    "yfinance>=0.2.61",
 ]
