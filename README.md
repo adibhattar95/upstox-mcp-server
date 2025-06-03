@@ -22,7 +22,8 @@ If you want to consume the server from Claude AI (Anthropic):
     UPSTOX_API_KEY=upstox_api_key
     UPSTOX_SECRET_KEY=upstox_secret_key
     ```
-3. Run the setup.sh shell file to setup the server. This will check server dependencies and also run the access_token script to get the access_token from Upstox. It will open a browser windon, where you have to enter your upstox pin before proceeding to getting the access token.
+3. Download the instrument keys for upstox from here - **https://upstox.com/developer/api-documentation/instruments/#json-files**, and save it a folder for data/.
+3. Run the setup.sh shell file to setup the server. This will check server dependencies and also run the access_token script to get the access_token from Upstox. It will open a browser windon, where you have to enter your upstox pin before proceeding to getting the access token. It will also create the collection for getting the right instrument key for getting market prices of stocks.
 4. Open Claude (or your custom MCP client) and start exploring the server!
 
 ## Available Tools
