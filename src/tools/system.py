@@ -34,13 +34,19 @@ async def list_capabilities() -> Dict[str, str]:
                     "name": "get_market_price_tool",
                     "description": "Get the market price for the given company",
                     "parameters": ["company_name"]
+                },
+                {
+                    "name": "place_order_tool",
+                    "description": "Place an order for a stock given company name, quantity and order type",
+                    "parameters": ["company_name", "quantity", "order_type"]
                 }
             ],
             "example_usage": [
                 "get_profile_details_tool()",
                 "get_user_funds_margin_tool()",
                 "get_holdings_tool()",
-                "get_market_price_tool('Reliance')"
+                "get_market_price_tool('Reliance')",
+                "place_order_tool('Reliance', 10, Market)"
             ]
         }
         return capabilities

@@ -4,6 +4,7 @@ from mcp.server.fastmcp import FastMCP
 from src.utils.env import SERVER_NAME
 from src.tools.portfolio import get_holdings
 from src.tools.market_quote import get_market_price
+from src.tools.order import place_order
 from src.tools.profile import (
     get_profile_details, get_user_funds_margin
 )
@@ -56,6 +57,21 @@ async def get_market_price_tool(company_name: str) -> Dict:
         Exception: If there is any error in getting the market price
     """
     return await get_market_price(company_name)
+
+@mcp.tool()
+async def place_order_tool(company_name: str, quantity: int, order_type: str) -> Dict:
+    """
+    Place a delivery order for a stock given company name, quantity and order type
+    Arguments:
+        company_name: Name of the company for which stock order is to be placed
+        quantity: Number of shares to be purchased
+        order_type: Order Type - Market, Limit, StopLoss
+    Returns:
+        A success message indicating order was placed successfully
+    Raises:
+        Exception: If there is any error in placing the order
+    """
+    return await place_order(company_name, quantity, order_type)
 
 @mcp.tool()
 async def list_capabilities_tool() -> Dict[str, str]:
