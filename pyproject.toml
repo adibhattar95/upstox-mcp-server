@@ -8,6 +8,7 @@ dependencies = [
     "httpx>=0.28.1",
     "ipykernel>=6.29.5",
     "mcp[cli]>=1.9.2",
+    "pandas==2.2.3",
     "pymilvus>=2.5.10",
     "requests==2.32.3",
     "sentence-transformers==4.1.0",

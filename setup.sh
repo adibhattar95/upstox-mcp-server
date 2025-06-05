@@ -59,6 +59,6 @@ python3 scripts/create_equity_collection.py
 
 # 6. Run the MCP server
 echo "Starting MCP server..."
-mcp install --with requests --with tqdm --with sentence_transformers --with pymilvus main.py -f .env
+mcp install --with requests --with pandas==2.2.3 --with tqdm --with sentence_transformers --with pymilvus main.py -f .env
 
 echo "MCP server started. Restart the Claude app now."

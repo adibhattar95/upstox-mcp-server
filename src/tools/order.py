@@ -37,22 +37,22 @@ async def place_order(company_name: str, quantity: int, order_type: str) -> Dict
             'price': 0,
             'tag': 'string',
             'instrument_token': instrument_key,
-            'order_type': order_type,
+            'order_type': order_type.upper(),
             'transaction_type': 'BUY',
             'disclosed_quantity': 0,
             'trigger_price': 0,
             'is_amo': False
         }
         try:
-            place_order = http_request(url, data=data, headers=headers, params={'instrument_key': instrument_key})
+            place_order = http_request(url, method="POST", data=data, headers=headers)
         except Exception as e:
             return create_error_response(
                 "SERVER_ERROR",
-                "Failed to get market quote from upstox"
+                "Failed to place order from upstox"
             )
         return place_order
     except Exception as e:
         return create_error_response(
                 "SERVER_ERROR",
-                "Unexpected error occurred while retrieving market quote"
+                "Unexpected error occurred while placing order"
             )
