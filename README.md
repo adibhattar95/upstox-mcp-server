@@ -27,11 +27,12 @@ If you want to consume the server from Claude AI (Anthropic):
 5. Open Claude (or your custom MCP client) and start exploring the server!
 
 ## Available Tools
-| Tool Name                        | Description                                     |
-|----------------------------------|----------------------------------------------   |
-| get_profile_details_tool         | Get user profile details from Upstox            |
-| get_user_funds_margin_tool       | Get the fund details from Upstox                |
-| get_holdings_tool                | Get the holdings from Upstox                    |
-| get_market_price_tool            | Get the current price of a stock                |
-| place_order_tool                 | Place an order on Upstox for a particular stock |
-| list_capabilities_tool           | List all tools available in the server          |
+| Tool Name                        | Description                                            |
+|----------------------------------|------------------------------------------------------- |
+| get_profile_details_tool         | Get user profile details from Upstox                   |
+| get_user_funds_margin_tool       | Get the fund details from Upstox                       |
+| get_holdings_tool                | Get the holdings from Upstox                           |
+| get_market_price_tool            | Get the current price of a stock                       |
+| place_order_tool                 | Place an order on Upstox for a particular stock        |
+| get_brokerage_details_tool       | Get the brokerage charges applicable for a given stock |
+| list_capabilities_tool           | List all tools available in the server                 |
