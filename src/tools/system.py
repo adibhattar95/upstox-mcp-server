@@ -39,6 +39,11 @@ async def list_capabilities() -> Dict[str, str]:
                     "name": "place_order_tool",
                     "description": "Place an order for a stock given company name, quantity and order type",
                     "parameters": ["company_name", "quantity", "order_type"]
+                },
+                {
+                    "name": "get_brokerage_details_tool",
+                    "description": "Get the brokerage charges applicable for a given share",
+                    "parameters": ["instrument_key", "price", "quantity"]
                 }
             ],
             "example_usage": [
@@ -46,7 +51,8 @@ async def list_capabilities() -> Dict[str, str]:
                 "get_user_funds_margin_tool()",
                 "get_holdings_tool()",
                 "get_market_price_tool('Reliance')",
-                "place_order_tool('Reliance', 10, Market)"
+                "place_order_tool('Reliance', 10, Market)",
+                "get_brokerage_details_tool('NSE_EQ|INE669E01016', '13.7', '10')"
             ]
         }
         return capabilities

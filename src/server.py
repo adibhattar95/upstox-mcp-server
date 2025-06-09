@@ -5,6 +5,7 @@ from src.utils.env import SERVER_NAME
 from src.tools.portfolio import get_holdings
 from src.tools.market_quote import get_market_price
 from src.tools.order import place_order
+from src.tools.brokerage import get_brokerage_details
 from src.tools.profile import (
     get_profile_details, get_user_funds_margin
 )
@@ -72,6 +73,21 @@ async def place_order_tool(company_name: str, quantity: int, order_type: str) ->
         Exception: If there is any error in placing the order
     """
     return await place_order(company_name, quantity, order_type)
+
+@mcp.tool()
+async def get_brokerage_details_tool(instrument_key: str, price: float, quantity: int) -> Dict:
+    """
+    Get the brokerage charges applicable for a given token and price
+    Arguments:
+        instrument_key: Name of the company for which stock price is required
+        price: Price at which share is to be purchased
+        quantity: Number of shares to buy
+    Returns:
+        A dictionary containig information about the current market price of a stock
+    Raises:
+        Exception: If there is any error in getting the brokerage details
+    """
+    return await get_brokerage_details(instrument_key, price, quantity)
 
 @mcp.tool()
 async def list_capabilities_tool() -> Dict[str, str]:
