@@ -3,6 +3,9 @@
 
 Upstox MCP Server is a lightweight, plugin-based **Model Context Protocol (MCP)** server designed to perform trading and fund analyhsis using Upstox APIs
 
+### Can learn more about repo by going through the deepwiki
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/adibhattar95/upstox-mcp-server)
+
 ## Table of Contents
 - [Client Prequisites](#-clientt-prerequisites)
 - [Getting Started with the Server](#-getting-started)
